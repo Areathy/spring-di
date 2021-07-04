@@ -1,13 +1,15 @@
 package henrietha.DendencyInjection.springdi.services;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+import henrietha.DendencyInjection.springdi.repositories.EngGreetingsRepo;
 
-//The default key word is Spring goto if no profile is set. Just like the @Primary annotation
-//@Service("profileGreetingService")
 public class EngProfileGreetingServiceImp implements GreetingService{
-    @Override
-    public String sayGreeting() {
-        return "Good Morning";
+
+    public final EngGreetingsRepo engGreetingsRepo;
+
+    public EngProfileGreetingServiceImp(EngGreetingsRepo engGreetingsRepo) {
+        this.engGreetingsRepo = engGreetingsRepo;
     }
+
+    @Override
+    public String sayGreeting() { return "Good Morning"; }
 }
