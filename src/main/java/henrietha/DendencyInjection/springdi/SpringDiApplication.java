@@ -9,13 +9,19 @@ import henrietha.DendencyInjection.springdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+//@ComponentScan(basePackages = {"henrietha.DendencyInjection.springdi", "com.henrietha.pets"})
 @SpringBootApplication
 public class SpringDiApplication {
 
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = SpringApplication.run(SpringDiApplication.class, args);
+
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("Most liked pet is...");
+		System.out.println(petController.likedPetService());
 
 		ProfileController profileController = (ProfileController) ctx.getBean("profileController");
 		System.out.println(profileController.sampleProfile());

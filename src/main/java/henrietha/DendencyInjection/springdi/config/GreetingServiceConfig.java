@@ -1,5 +1,7 @@
 package henrietha.DendencyInjection.springdi.config;
 
+import com.henrietha.pets.PetService;
+import com.henrietha.pets.PetServiceFactory;
 import henrietha.DendencyInjection.springdi.repositories.EngGreetingsRepo;
 import henrietha.DendencyInjection.springdi.repositories.EngGreetingsRepoImpl;
 import henrietha.DendencyInjection.springdi.services.*;
@@ -10,6 +12,21 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    PetServiceFactory petServiceFactory() { return new PetServiceFactory();}
+
+    @Profile({"dog", "default"})
+    @Bean
+    PetService dogPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("dog");
+    }
+
+    @Profile({"cat"})
+    @Bean
+    PetService catPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("cat");
+    }
 
     @Bean
     EngGreetingsRepo engGreetingsRepo(){
