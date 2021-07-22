@@ -1,7 +1,7 @@
-#yml is space sensitive 
+#yml is space sensitive
 spring:
   profiles:
-    active: dog,FRN,qa
+    active: dog,FRN,dev
 
 henrietha:
   username: YmlUserName

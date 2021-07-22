@@ -1,0 +1,9 @@
+#The .properties version
+#henrietha.username=DevDBUser
+#henrietha.password=DevPassword
+#henrietha.jdbcurl=DevURL
+
+henrietha:
+  username: YmlDevDBUser
+  password: YmlDevPassword
+  jdbcurl: YmlDevURL

@@ -1,0 +1,9 @@
+#The .properties version
+#henrietha.username=QADBUser
+#henrietha.password=QAPassword
+#henrietha.jdbcurl=URLForQADB
+
+henrietha:
+  username: YmlQaDBUser
+  password: YmlQaPassword
+  jdbcurl: YmlQ aURL
