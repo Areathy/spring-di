@@ -6,6 +6,7 @@ package henrietha.DendencyInjection.springdi;
  */
 
 import henrietha.DendencyInjection.springdi.config.SpringdiConfig;
+import henrietha.DendencyInjection.springdi.config.SringdiConstructorConfig;
 import henrietha.DendencyInjection.springdi.controllers.*;
 import henrietha.DendencyInjection.springdi.datasource.FakeDataSource;
 import henrietha.DendencyInjection.springdi.services.PrototypeBean;
@@ -70,6 +71,12 @@ public class SpringDiApplication {
 		System.out.println(springdiConfig.getUsername());
 		System.out.println(springdiConfig.getPassword());
 		System.out.println(springdiConfig.getJdbcurl());
+
+		System.out.println("CONSTRUCTOR BINDING");
+		SringdiConstructorConfig sringdiConstructorConfig = ctx.getBean(SringdiConstructorConfig.class);
+		System.out.println(sringdiConstructorConfig.getUsername());
+		System.out.println(sringdiConstructorConfig.getPassword());
+		System.out.println(sringdiConstructorConfig.getJdbcurl());
 	}
 
 }

@@ -7,18 +7,20 @@ import henrietha.DendencyInjection.springdi.repositories.EngGreetingsRepo;
 import henrietha.DendencyInjection.springdi.repositories.EngGreetingsRepoImpl;
 import henrietha.DendencyInjection.springdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
+@EnableConfigurationProperties(SringdiConstructorConfig.class)
 //@ImportResource("classpath:springdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(SpringdiConfig springdiConfig) {
+    FakeDataSource fakeDataSource(SringdiConstructorConfig sringdiConstructorConfig) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(springdiConfig.getUsername());
-        fakeDataSource.setPassword(springdiConfig.getPassword());
-        fakeDataSource.setJdbcurl(springdiConfig.getJdbcurl());
+        fakeDataSource.setUsername(sringdiConstructorConfig.getUsername());
+        fakeDataSource.setPassword(sringdiConstructorConfig.getPassword());
+        fakeDataSource.setJdbcurl(sringdiConstructorConfig.getJdbcurl());
         return fakeDataSource;
     }
 
