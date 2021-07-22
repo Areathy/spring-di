@@ -9,7 +9,6 @@ import henrietha.DendencyInjection.springdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
-@PropertySource("classpath:application.properties")
 //@ImportResource("classpath:springdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
