@@ -6,6 +6,7 @@ package henrietha.DendencyInjection.springdi;
  */
 
 import henrietha.DendencyInjection.springdi.controllers.*;
+import henrietha.DendencyInjection.springdi.datasource.FakeDataSource;
 import henrietha.DendencyInjection.springdi.services.PrototypeBean;
 import henrietha.DendencyInjection.springdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -57,6 +58,11 @@ public class SpringDiApplication {
 		System.out.println(prototypeBean1.getScope());
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getScope());
+
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurl());
 	}
 
 }

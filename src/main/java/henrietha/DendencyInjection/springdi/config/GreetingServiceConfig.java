@@ -2,16 +2,28 @@ package henrietha.DendencyInjection.springdi.config;
 
 import com.henrietha.pets.PetService;
 import com.henrietha.pets.PetServiceFactory;
+import henrietha.DendencyInjection.springdi.datasource.FakeDataSource;
 import henrietha.DendencyInjection.springdi.repositories.EngGreetingsRepo;
 import henrietha.DendencyInjection.springdi.repositories.EngGreetingsRepoImpl;
 import henrietha.DendencyInjection.springdi.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:application.properties")
+//@ImportResource("classpath:springdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${henrietha.username}") String username,
+                                  @Value("${henrietha.password}") String password,
+                                  @Value("${henrietha.jdbcurl}") String jdbcurl) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcurl);
+        return fakeDataSource;
+    }
 
     @Bean
     PetServiceFactory petServiceFactory() { return new PetServiceFactory();}
