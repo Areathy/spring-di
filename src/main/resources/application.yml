@@ -1,12 +1,27 @@
-#yml is space sensitive
+#yml files are extremely space sensitive
 spring:
   profiles:
-    active: dog,FRN,dev
+    active:
+      - dog
+      - FRN
+      - prod
 
 henrietha:
   username: YmlUserName
   password: YmlPassword
   jdbcurl: YmlURL
+
+
+#The --- signifies a yml file separator giving birtn to a new yml file
+---
+spring:
+  profiles: prod
+
+henrietha:
+  username: YmlProdUserName
+  password: YmlProdPassword
+  jdbcurl: YmlProdURL
+
 
 
 
