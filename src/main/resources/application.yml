@@ -1,10 +1,19 @@
 #yml files are extremely space sensitive
+
+#    content of application.properties file that is being converted to .yml file
+#    spring.profiles.active=dog,FRN,qa
+#
+#    #HENRIETHA.USERNAME= UserFromEnvVar!
+#    #--henrietha.password=PwdFromCmdLine --henrietha.username=UserFromCmdLine
+#    henrietha.username=henrietha
+#    henrietha.password=12345
+#    henrietha.jdbcurl=someUrlforDB
 spring:
   profiles:
     active:
       - dog
       - FRN
-      - prod
+      - qa
 
 henrietha:
   username: YmlUserName
@@ -25,11 +34,4 @@ henrietha:
 
 
 
-#    content of application.properties file that is being converted to .yml file
-#    spring.profiles.active=dog,FRN,qa
-#
-#    #HENRIETHA.USERNAME= UserFromEnvVar!
-#    #--henrietha.password=PwdFromCmdLine --henrietha.username=UserFromCmdLine
-#    henrietha.username=henrietha
-#    henrietha.password=12345
-#    henrietha.jdbcurl=someUrlforDB
+

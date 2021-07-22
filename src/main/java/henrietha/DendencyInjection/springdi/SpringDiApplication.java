@@ -5,6 +5,7 @@ package henrietha.DendencyInjection.springdi;
  * @author henrietha
  */
 
+import henrietha.DendencyInjection.springdi.config.SpringdiConfig;
 import henrietha.DendencyInjection.springdi.controllers.*;
 import henrietha.DendencyInjection.springdi.datasource.FakeDataSource;
 import henrietha.DendencyInjection.springdi.services.PrototypeBean;
@@ -63,6 +64,12 @@ public class SpringDiApplication {
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurl());
+
+		System.out.println("CONFIG PROPERTIES BEAN");
+		SpringdiConfig springdiConfig = ctx.getBean(SpringdiConfig.class);
+		System.out.println(springdiConfig.getUsername());
+		System.out.println(springdiConfig.getPassword());
+		System.out.println(springdiConfig.getJdbcurl());
 	}
 
 }
